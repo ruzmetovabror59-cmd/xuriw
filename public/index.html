@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Xurish Live</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header><div class="logo">▶</div><div><h1>Xurish Live</h1><p>Rozilik asosidagi jonli video xona</p></div></header>
+
+    <section class="notice">
+      <strong>Maxfiylik:</strong> Kamera faqat “Kamerani yoqish” tugmasi bosilganda va telefon ruxsati berilganda ishlaydi.
+      Kamera egasi jonli uzatish ketayotganini doim ko‘radi va istalgan payt to‘xtata oladi.
+    </section>
+
+    <section class="panel">
+      <label for="room">Xona kodi</label>
+      <div class="joinrow">
+        <input id="room" maxlength="6" placeholder="6 ta belgi" autocomplete="off">
+        <button id="create" class="secondary">Kod yaratish</button>
+      </div>
+      <p class="hint">Ikkala ishtirokchi ham bir xil kodni kiritishi kerak. Kodni faqat ishonchli odamga yuboring.</p>
+      <div class="actions">
+        <button id="join">Xonaga kirish</button>
+        <button id="camera" class="secondary" disabled>Kamerani yoqish</button>
+        <button id="stop" class="danger" disabled>Jonli uzatishni to‘xtatish</button>
+      </div>
+      <p id="status" role="status">Avval xona kodini yarating yoki kiriting.</p>
+    </section>
+
+
+    <section class="panel recorder-panel">
+      <h2>Dumaloq video</h2>
+      <p class="hint">Kamerani tayyorlang, so‘ng yozish tugmasini bosib turing. Tugmani qo‘yib yuborsangiz video tayyor bo‘ladi. Video faqat shu sahifada qoladi.</p>
+      <div class="circle-stage">
+        <video id="circlePreview" autoplay playsinline muted></video>
+        <video id="circleResult" playsinline controls hidden></video>
+        <div id="circlePlaceholder" class="circle-placeholder">Kamera o‘chiq</div>
+      </div>
+      <div class="recorder-actions">
+        <button id="prepareRecorder" class="secondary" type="button">Kamerani tayyorlash</button>
+        <button id="holdRecord" type="button" disabled>● Bosib turib yozish</button>
+      </div>
+      <p id="recordStatus" class="hint" role="status">Galereyadan video tanlash mavjud emas.</p>
+    </section>
+
+    <section class="videos">
+      <article class="video-card">
+        <div class="video-title">Sizning kamerangiz</div>
+        <video id="local" autoplay playsinline muted></video>
+        <p class="hint">Bu tasvir faqat kamera yoqilgandan keyin ko‘rinadi.</p>
+      </article>
+      <article class="video-card">
+        <div class="video-title">Ulangan ishtirokchi</div>
+        <video id="remote" autoplay playsinline></video>
+        <p class="hint">Boshqa ishtirokchi kamera ulashishni o‘zi boshlashi kerak.</p>
+      </article>
+    </section>
+    <footer>Xurish Live · Jonli video faqat ishtirokchilarning aniq roziligi bilan.</footer>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
