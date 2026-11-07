@@ -1,3 +1,4 @@
+
 const socket = io();
 const roomInput = document.getElementById("room");
 const createBtn = document.getElementById("create");
